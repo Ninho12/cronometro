@@ -1,5 +1,5 @@
 /*
-    Estilo do Relogio, para o relogio fica 
+    Estilo do Cronometro, para o cronometro fica 
     muito bonito.
 */
 
@@ -49,4 +49,13 @@ body{
 
 .relogio span.tempo{
     font-size: 20px;
+}
+
+button{
+    background-color: white;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    font-weight: bolder;
 }

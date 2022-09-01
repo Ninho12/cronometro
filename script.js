@@ -1,23 +1,58 @@
-const horas = document.getElementById("horas");
 const minutos = document.getElementById("minutos");
 const segundos = document.getElementById("segundos");
+const milesmos = document.getElementById("milesmos");
+
+var min = 0;
+var sec = 0;
+var mili = 0;
+
+var iniciar = false;
 
 const relogio = setInterval(function time(){
-    // pega a data atual
-    let dataAtual = new Date();
 
-    // pega a hora, minutos e segundos
-    let hr = dataAtual.getHours();
-    let min = dataAtual.getMinutes();
-    let sec = dataAtual.getSeconds();
+    if(iniciar){
+        contador();
+        display();
+    }
+    
 
-    // coloca 0 no começo para numeros menores de 10
-    if(hr < 10) hr = "0" + hr
-    if(min < 10) min = "0" + min
-    if(sec < 10) sec = "0" + sec
+}, 10);
+
+function contador(){
+
+    // fazendo o controle do cronometro
+    if(mili == 1000) {
+        sec++;
+        mili = 0;
+    }
+    if(sec == 60){
+        min++;
+        sec = 0;
+    }
+    if(min == 60){
+        min = 0;
+        sec = 0;
+        mili = 0;
+    }
+    mili = mili + 10;
+
+}
+
+function display(){
 
     // atualiza o tempo
-    horas.textContent = hr;
-    minutos.textContent = min;
-    segundos.textContent = sec;
-});
+    if(min < 10)
+        minutos.textContent = "0"+ min;
+    else{
+        minutos.textContent =  min;
+    }
+    if(sec < 10)
+        segundos.textContent = "0"+ sec;
+    else{
+        segundos.textContent =  sec;
+    }
+    
+    milesmos.textContent =  mili;
+
+
+}
