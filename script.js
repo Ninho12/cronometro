@@ -6,7 +6,13 @@ var min = 0;
 var sec = 0;
 var mili = 0;
 
-var iniciar = false;
+// Uma variavel e controle
+// 0 no inicio
+// 1 em execução
+// 2 parado
+// 3 reiniciando
+var controle = false;
+
 
 const relogio = setInterval(function time(){
 
