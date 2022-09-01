@@ -20,7 +20,7 @@ var mili = 0;
 // 0 no inicio
 // 1 em execução
 // 2 parado
-// 3 reiniciando
+// 3 retomar
 var controle = 0;
 
 
@@ -35,7 +35,11 @@ const relogio = setInterval(function time(){
         display();
     }
     if( controle == 2){
-
+        display();
+    }
+    if(controle == 3){
+        contador();
+        display();
     }
     
 
@@ -59,6 +63,14 @@ function iniciar(){
     Função para parar
 */
 function parar(){
+    var alt = botaoParar.textContent;
+    if(alt == "Parar"){
+        controle = 2;
+        botaoParar.textContent = "Retomar"
+    }else{
+        controle = 3;
+        botaoParar.textContent = "Parar"
+    }
 
 }
 /*
@@ -107,7 +119,10 @@ function display(){
     else{
         segundos.textContent =  sec;
     }
-    
-    milesmos.textContent =  mili;
+    if(mili < 10)
+        milesmos.textContent = "0"+ mili;
+    else{
+        milesmos.textContent =  mili;
+    }
 
 }
