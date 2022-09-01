@@ -11,7 +11,9 @@ const milesmos = document.getElementById("milesmos");
 const botaoIniciar = document.getElementById("iniciar");
 const botaoParar = document.getElementById("parar");
 
-
+/*
+    Variaveis de tempo importante
+*/
 var min = 0;
 var sec = 0;
 var mili = 0;
@@ -21,7 +23,7 @@ var mili = 0;
 // 1 em execução
 // 2 parado
 // 3 retomar
-var controle = 0;
+var controle = 1;
 
 
 const relogio = setInterval(function time(){
@@ -33,6 +35,7 @@ const relogio = setInterval(function time(){
     if(controle == 1){
         contador();
         display();
+        botaoParar.textContent = "Parar"
     }
     if( controle == 2){
         display();
@@ -50,12 +53,12 @@ const relogio = setInterval(function time(){
 */
 function iniciar(){
     var alt = botaoIniciar.textContent;
-    if(alt == "Iniciar"){
-        controle = 1;
-        botaoIniciar.textContent = "Zerar"
-    }else{
+    if(alt == "Zerar"){
         controle = 0;
         botaoIniciar.textContent = "Iniciar"
+    }else{
+        controle = 1;
+        botaoIniciar.textContent = "Zerar"
     }
 
 }
